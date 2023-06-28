@@ -3,16 +3,25 @@ const VendorsModel = require('../model/Vendors')
 // Create and Save a new user
 exports.create = async (req, res) => {
     console.log("test");
-    if (!req.body.email && !req.body.fname && !req.body.lname && !req.body.mobile &&  !req.body.password) {
+    if (!req.body.First_name && !req.body.Last_name && !req.body.email && !req.body.Phone &&  !req.body.alternative_no && !req.body.Address 
+        && !req.body.Id_Proof && !req.body.Logo &&  !req.body.Company_Name &&  !req.body.Products && !req.body.Company_Lisence_Number &&  !req.body.Company_Lisence_Id &&  !req.body.Product_Category) {
         res.status(400).send({ message: "Content can not be empty!" });
     }
     
     const Vendors = new VendorsModel({
+        First_name: req.body.First_name,
+        Last_name: req.body.Last_name,
         email: req.body.email,
-        fname: req.body.fname,
-        lname: req.body.lname,
-        mobile: req.body.mobile,
-        password: req.body.password
+        Phone: req.body.Phone,
+        alternative_no: req.body.alternative_no,
+        Address: req.body.Address,
+        Id_Proof: req.body.Id_Proof,
+        Logo: req.body.Logo,
+        Company_Name: req.body.Company_Name,
+        Products: req.body.Products,
+        Company_Lisence_Number: req.body.Company_Lisence_Number,
+        Company_Lisence_Id: req.body.Company_Lisence_Id,
+        Product_Category: req.body.Product_Category,
        
     });
    

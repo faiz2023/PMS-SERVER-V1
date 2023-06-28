@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
-    fname: {
+    First_name: {
         type: String,
             
     },
-    lname: {
+    Last_name: {
         type: String,
         default: ''
     },
@@ -16,11 +16,43 @@ var schema = new mongoose.Schema({
         trim: true,
       },
       
-    mobile: {
+    Phone: {
         type: String,
         default: ''
     },
-    password: {
+    alternative_no: {
+        type: String,
+        default: ''
+    },
+    Address: {
+        type: String,
+        default: ''
+    },
+    Id_Proof: {
+        type: String,
+        default: ''
+    },
+    Logo: {
+        type: String,
+        default: ''
+    },
+    Company_Name: {
+        type: String,
+        default: ''
+    },
+    Products: {
+        type: String,
+        default: ''
+    },
+    Company_Lisence_Number: {
+        type: String,
+        default: ''
+    },
+    Company_Lisence_Id: {
+        type: String,
+        default: ''
+    },
+    Product_Category: {
         type: String,
         default: ''
     },
