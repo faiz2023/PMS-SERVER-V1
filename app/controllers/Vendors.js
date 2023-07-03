@@ -59,29 +59,38 @@ exports.findOne = async (req, res) => {
 };
 
 // Update a user by the id in the request
+const Vendors = require('../model/Vendors');
+
+// Update a user by the id in the request
 exports.update = async (req, res) => {
-    if(!req.body) {
-        res.status(400).send({
-            message: "Data to update can not be empty!"
-        });
-    }
-    
-    const id = req.params.id;
-    
-    await Vendors.findByIdAndUpdate(id, req.body, { useFindAndModify: false }).then(data => {
-        if (!data) {
-            res.status(404).send({
-                message: `Vendors not found.`
-            });
-        }else{
-            res.send({ message: "Vendors updated successfully." })
-        }
-    }).catch(err => {
-        res.status(500).send({
-            message: err.message
-        });
+  if (!req.body) {
+    return res.status(400).send({
+      message: "Data to update cannot be empty!"
     });
+  }
+
+  const id = req.params.id;
+
+  try {
+    const updatedVendor = await Vendors.findByIdAndUpdate(id, req.body, { useFindAndModify: false });
+    if (!updatedVendor) {
+      return res.status(404).send({
+        message: "Vendor not found."
+      });
+    }
+
+    return res.send({
+      message: "Vendor updated successfully."
+    });
+  } catch (err) {
+    return res.status(500).send({
+      message: err.message
+    });
+  }
 };
+
+
+
 
 // Delete a user with the specified id in the request
 exports.destroy = async (req, res) => {
