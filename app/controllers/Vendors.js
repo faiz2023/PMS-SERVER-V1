@@ -9,7 +9,7 @@ exports.create = async (req, res) => {
     }
     
     const Vendors = new VendorsModel({
-        First_name: req.body.First_name,
+       First_name: req.body.First_name,
         Last_name: req.body.Last_name,
         email: req.body.email,
         Phone: req.body.Phone,

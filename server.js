@@ -15,6 +15,13 @@ app.use(bodyParser.json())
 const VendorsRoute = require('./app/routes/Vendors')
 app.use('/Vendors',VendorsRoute)
 
+
+const ProductsRoute = require('./app/routes/Products')
+app.use('/Products',ProductsRoute)
+
+const SupportEnquiryRoute = require('./app/routes/SupportEnquiry')
+app.use('/SupportEnquiry',SupportEnquiryRoute)
+
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose');
 
