@@ -15,6 +15,19 @@ app.use(bodyParser.json())
 const VendorsRoute = require('./app/routes/Vendors')
 app.use('/Vendors',VendorsRoute)
 
+const ProductsRoute = require('./app/routes/Products')
+app.use('/Products',ProductsRoute)
+
+const CustomersRoute = require('./app/routes/Customers')
+app.use('/Customers',CustomersRoute)
+
+const SupportEnquiryRoute = require('./app/routes/SupportEnquiry')
+app.use('/SupportEnquiry',SupportEnquiryRoute)
+
+const PurchaseRoute = require('./app/routes/Purchase')
+app.use('/Purchase',PurchaseRoute)
+
+
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose');
 
@@ -39,4 +52,3 @@ app.get('/', (req, res) => {
 app.listen(3003, () => {
     console.log("Server is listening on port 3003");
 });
-
